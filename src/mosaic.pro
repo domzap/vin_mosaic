@@ -29,14 +29,16 @@ HEADERS += \
     MosiacCreator.h \
     ImageUpdater.h \
     ImageProvider.h \
-    ImageProcessor.h
+    ImageProcessor.h \
+    Image.h
 
 # Source files.
 SOURCES += main.cpp \
     MosiacCreator.cpp \
     ImageUpdater.cpp \
     ImageProvider.cpp \
-    ImageProcessor.cpp
+    ImageProcessor.cpp \
+    Image.cpp
 
 # Resources.
 RESOURCES += \
@@ -65,9 +67,21 @@ linux {
 
     LIBS += -L"/home/dominik/libs/OpenCV/lib"
 
+    LIBS += -lopencv_world
+}
+
+win32 {
+    message("Building Mosiac for Windows.")
+
+    INCLUDEPATH += C:\OpenCV\3.2.0\opencv\build\include\opencv2
+    INCLUDEPATH += C:\OpenCV\3.2.0\opencv\build\include\opencv
+    INCLUDEPATH += C:\OpenCV\3.2.0\opencv\build\include
+
+    LIBS += -L"C:\OpenCV\3.2.0\opencv\build\x64\vc14\lib"
+
     CONFIG(debug, debug|release){
-        LIBS += -lopencv_world
+        LIBS += -lopencv_world320
     } else {
-        LIBS += -lopencv_world
+        LIBS += -lopencv_world320d
     }
 }

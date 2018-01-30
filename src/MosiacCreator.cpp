@@ -17,6 +17,9 @@
 #define WINDOW_WIDTH_MIN 640
 #define WINDOW_HEIGHT_MIN 480
 
+#define DEBUG_SOURCE_IMAGE_PATH "C:\\Data\\Programmingstuff\\VIN\\vin_mosaic\\build-mosaic-Desktop_Qt_5_10_0_MSVC2015_64bit2-Release\\mosiac_source\\1.JPG"
+#define DEBUG_SOURCE_IMAGE_DIRECTORY "C:\\Data\\Programmingstuff\\VIN\\vin_mosaic\\build-mosaic-Desktop_Qt_5_10_0_MSVC2015_64bit2-Release\\mosiac_dataset"
+
 // Constructor.
 MosiacCreator::MosiacCreator(QObject *parent) :
     QObject(parent)
@@ -25,7 +28,9 @@ MosiacCreator::MosiacCreator(QObject *parent) :
     makeConnections();
     start();
 
-    setNotificationString(tr("INFO: Start by loading a source image."));
+    setNotificationString(tr("INFO: Start by loading a source image for mosiac application."));
+
+    debugProcess();
 }
 
 // Sets notification string.
@@ -37,6 +42,12 @@ void MosiacCreator::setNotificationString(QString notificationString)
     }
 }
 
+void MosiacCreator::debugProcess()
+{
+    onSourceImageChosen(QVariant(DEBUG_SOURCE_IMAGE_PATH));
+    onSourceDirectoryChosen(QVariant(DEBUG_SOURCE_IMAGE_DIRECTORY));
+}
+
 // Slot is called whenever new source image is chosen.
 void MosiacCreator::onSourceImageChosen(QVariant imagePath)
 {
@@ -45,7 +56,7 @@ void MosiacCreator::onSourceImageChosen(QVariant imagePath)
     if(!imageProcessor_.loadSourceImage(imagePath.toString())){
         setNotificationString(tr("ERROR: Source image was not loaded!"));
     } else {
-        setNotificationString(tr("INFO: Source image was loaded successfully."));
+        setNotificationString(tr("INFO: Select folder containing sufficient amount of images."));
     }
 }
 
@@ -53,6 +64,17 @@ void MosiacCreator::onSourceImageChosen(QVariant imagePath)
 void MosiacCreator::onSourceDirectoryChosen(QVariant directoryPath)
 {
     qDebug() << "Source image directory chosen: " << directoryPath.toString();
+
+    // Find source directory images.
+    imageProcessor_.loadSourceDirectory(directoryPath.toString());
+
+    int imagesFound = imageProcessor_.imagesFound();
+
+    if (imagesFound < MINIMUM_IMAGES_NECCESSARY){
+        setNotificationString(tr("ERROR: %1 images found in the source directory - at least %2 images needed!").arg(imagesFound).arg(MINIMUM_IMAGES_NECCESSARY));
+    } else {
+        setNotificationString(tr("INFO: %1 images found in the source directory. Set grid size.").arg(imagesFound));
+    }
 }
 
 // Initialize all necessary components.
