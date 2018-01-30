@@ -25,7 +25,7 @@ MosiacCreator::MosiacCreator(QObject *parent) :
     makeConnections();
     start();
 
-    setNotificationString(tr("INFO: Start by loading a source image."));
+    setNotificationString(tr("INFO: Start by loading a source image for mosiac application."));
 }
 
 // Sets notification string.
@@ -45,7 +45,7 @@ void MosiacCreator::onSourceImageChosen(QVariant imagePath)
     if(!imageProcessor_.loadSourceImage(imagePath.toString())){
         setNotificationString(tr("ERROR: Source image was not loaded!"));
     } else {
-        setNotificationString(tr("INFO: Source image was loaded successfully."));
+        setNotificationString(tr("INFO: Select folder containing sufficient amount of images."));
     }
 }
 

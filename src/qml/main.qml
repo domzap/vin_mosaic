@@ -165,7 +165,7 @@ Rectangle {
         visible: false
 
         onAccepted: {
-            var path = decodeURIComponent(fileDialog.fileUrl.toString().replace(/^(file:\/{2})/,""))
+            var path = decodeURIComponent(fileDialog.fileUrl.toString().replace(/^(file:\/{3})/,""))
             if(selectFolder){
                 console.log("Mosaic source directory chosen: " + path)
                 root.sourceDirectoryChosen(path);
