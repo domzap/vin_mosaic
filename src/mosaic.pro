@@ -29,14 +29,16 @@ HEADERS += \
     MosiacCreator.h \
     ImageUpdater.h \
     ImageProvider.h \
-    ImageProcessor.h
+    ImageProcessor.h \
+    Image.h
 
 # Source files.
 SOURCES += main.cpp \
     MosiacCreator.cpp \
     ImageUpdater.cpp \
     ImageProvider.cpp \
-    ImageProcessor.cpp
+    ImageProcessor.cpp \
+    Image.cpp
 
 # Resources.
 RESOURCES += \

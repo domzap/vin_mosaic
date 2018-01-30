@@ -32,6 +32,11 @@ public:
     //! Sets notification string.
     void setNotificationString(QString notificationString);
 
+    // --- PUBLIC METHODS ---
+
+    // TODO - remove in final build.
+    void debugProcess();
+
 signals:
 
     //! Notification string changed signal.

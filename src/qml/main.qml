@@ -105,7 +105,7 @@ Rectangle {
                                 anchors.fill: parent
                                 anchors.margins: root.defaultMargin
                                 enabled: imageProcessor.sourceImageLoaded
-                                opacity: enabled ? 1 : 0.5
+                                opacity: enabled ? 1 : 0.5                                
 
                                 Text {
                                     anchors.centerIn: parent
