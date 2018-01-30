@@ -52,6 +52,12 @@ public slots:
     //! Slot is called whenever new source image directory is chosen.
     void onSourceDirectoryChosen(QVariant directoryPath);
 
+    //! Slot is called whenever mosiac image is to be computed.
+    void onComputeMosaic();
+
+    //! Slot is called whenever preview image is to be exported.
+    void onExportImage(QVariant exportFilePath);
+
 protected:
     // --- PROTECTED METHODS ---
 

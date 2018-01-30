@@ -1,6 +1,6 @@
 # Project settings.
 TEMPLATE = app
-TARGET = mosaic
+TARGET = EasyMosaic
 OBJECTS_DIR = object_files
 MOC_DIR = moc_files
 

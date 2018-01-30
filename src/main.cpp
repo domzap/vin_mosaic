@@ -1,6 +1,6 @@
 // Qt libraries.
 #include <iostream>
-#include <QGuiApplication>
+#include <QApplication>
 #include <QCommandLineParser>
 #include <QByteArray>
 
@@ -14,11 +14,11 @@ int main(int argc, char *argv[])
 {
 
     // Create GUI application.
-    QGuiApplication app(argc, argv);
+    QApplication app(argc, argv);
 
     // Process command line.
     QCommandLineParser parser;
-    parser.setApplicationDescription("Mosiac - advanced mosiac creator.");
+    parser.setApplicationDescription("EasyMosaic");
     parser.addHelpOption();
 
     // Create and start the client...
