@@ -26,19 +26,19 @@ DEFINES += CV_MAJOR_VERSION=3
 
 # Header files.
 HEADERS += \
-    MosiacCreator.h \
     ImageUpdater.h \
     ImageProvider.h \
     ImageProcessor.h \
-    Image.h
+    Image.h \
+    MosaicCreator.h
 
 # Source files.
 SOURCES += main.cpp \
-    MosiacCreator.cpp \
     ImageUpdater.cpp \
     ImageProvider.cpp \
     ImageProcessor.cpp \
-    Image.cpp
+    Image.cpp \
+    MosaicCreator.cpp
 
 # Resources.
 RESOURCES += \

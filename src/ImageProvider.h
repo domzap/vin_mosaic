@@ -31,6 +31,7 @@ protected:
     // --- PROTECTED CLASS VARIABLES ---
 
     QImage image_;          //!< Image to display by requestImage method.
+
 };
 
 #endif // IMAGEPROVIDER_H

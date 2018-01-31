@@ -5,7 +5,7 @@
 #include <QByteArray>
 
 // Project libraries.
-#include "MosiacCreator.h"
+#include "MosaicCreator.h"
 
 // Standard libraries.
 
@@ -21,7 +21,7 @@ int main(int argc, char *argv[])
     parser.setApplicationDescription("EasyMosaic");
     parser.addHelpOption();
 
-    // Create and start the client...
-    MosiacCreator mc;
+    // Create and MosaicCreator
+    MosaicCreator mc;
     return app.exec();
 }

@@ -66,18 +66,10 @@ void ImageProcessor::loadSourceDirectory(QString directoryPath)
 void ImageProcessor::computeMosaic()
 {
 
-//    QTime myTimer;
-//    myTimer.start();
-
     // Load images to the memory and compute color histograms.
     foreach (std::shared_ptr<Image> img, imagesList_) {
         img->loadImage(cv::Size(gridCellWidth_, gridCellHeight_));
     }
-
-//    qDebug() << myTimer.elapsed();
-
-
-//    myTimer.start();
 
     // For each grid cell find the best candidate in the image list.
     foreach (std::shared_ptr<Image> imageCell, imageCells_) {
@@ -86,7 +78,6 @@ void ImageProcessor::computeMosaic()
 
         foreach (std::shared_ptr<Image> candidate, imagesList_) {
             double currentScore = candidate->compareToImage(*imageCell);
-//            qDebug() << currentScore;
             if(currentScore > bestScore){
                 bestScore = currentScore;
                 bestCandidate = candidate;
@@ -96,8 +87,6 @@ void ImageProcessor::computeMosaic()
             bestCandidate->copyToImage(*imageCell);
         }
     }
-
-//    qDebug() << myTimer.elapsed();
 
     setPreviewImage(workingImage_);
 }
@@ -169,12 +158,6 @@ void ImageProcessor::computeGrid()
 
         double curryErr = 0.0;
 
-        /*if(x + gridCellWidth_ >= tmpImage.cols){
-            // Last row cell. Deal with it.
-
-            continue;
-        }*/
-
         // For every row in the column in the source image.
         for (int y = 0; y < tmpImage.rows; y+=currentGridCellHeight) {
 
@@ -189,12 +172,6 @@ void ImageProcessor::computeGrid()
                 // Draw horizontal line only once for the first column.
                 cv::line(tmpImage, cv::Point(0, y), cv::Point(tmpImage.cols, y), cv::Scalar(0, 0, 0), 3);
             }
-
-            /*if(y + gridCellHeight_ >= tmpImage.rows){
-                // Last row cell. Deal with it.
-
-                continue;
-            }*/
 
             // Get current grid cell image reference.
             imageCells_.push_back(

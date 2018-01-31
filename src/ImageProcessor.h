@@ -27,6 +27,7 @@ class ImageProcessor : public QObject
     Q_PROPERTY(int imagesFound READ imagesFound NOTIFY imagesFoundChanged)
     Q_PROPERTY(int minImages READ minImages NOTIFY sourceImageLoadedChanged)
     Q_PROPERTY(int minGrid READ minGrid NOTIFY sourceImageLoadedChanged)
+
 public:
     // --- CONSTRUCTORS / DESTRUCTOR ---
 
@@ -107,8 +108,6 @@ protected:
     int gridDivider_;                           //!< Grid divider.
     double gridCellWidth_;                      //!< Grid cell width.
     double gridCellHeight_;                     //!< Grid cell height
-
-
 
 };
 

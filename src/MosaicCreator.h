@@ -11,16 +11,17 @@
 #include "ImageUpdater.h"
 #include "ImageProcessor.h"
 
-class MosiacCreator : public QObject
+class MosaicCreator : public QObject
 {
     Q_OBJECT
 
     Q_PROPERTY(QString notificationString READ notificationString NOTIFY notificationStringChanged)
+
 public:
     // --- CONSTRUCTOR / DESTRUCTOR ---
 
     //! Constructor.
-    explicit MosiacCreator(QObject *parent = nullptr);
+    explicit MosaicCreator(QObject *parent = nullptr);
 
     // --- GETTERS ---
 
@@ -31,11 +32,6 @@ public:
 
     //! Sets notification string.
     void setNotificationString(QString notificationString);
-
-    // --- PUBLIC METHODS ---
-
-    // TODO - remove in final build.
-    void debugProcess();
 
 signals:
 
@@ -77,6 +73,7 @@ protected:
     ImageUpdater imageUpdater_;                 //!< Image preview updater.
     ImageProcessor imageProcessor_;             //!< Image processor where all mosiac processing is done.
     QString notificationString_;                //!< General notification string to be shown in GUI.
+
 };
 
 #endif // MOSIACCREATOR_H

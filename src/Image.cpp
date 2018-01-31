@@ -44,8 +44,6 @@ void Image::loadImage(cv::Size scaleSize)
 {
     image_ = cv::imread(imagePath_.toStdString());
 
-//    qDebug() << imagePath_;
-
     if(image_.data){
 
         // Resize image to the given size.

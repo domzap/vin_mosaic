@@ -40,6 +40,7 @@ protected:
     // --- PROTECTED CLASS VARIABLES ---
 
     ImageProvider imageProvider_;           //!< Image provider object.
+
 };
 
 #endif // IMAGEUPDATER_H
