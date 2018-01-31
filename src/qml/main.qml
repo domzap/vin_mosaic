@@ -107,13 +107,13 @@ Rectangle {
 
                         Text {
                             anchors.centerIn: parent
-                            text: "Choose a source\nimage folder"
+                            text: "Choose a source\nimages folder"
                             horizontalAlignment: Text.AlignHCenter
                             verticalAlignment: Text.AlignVCenter
                         }
 
                         onClicked: {
-                            fileDialog.title = "Choose a source image folder"
+                            fileDialog.title = "Choose a source images folder"
                             fileDialog.purpose = "folder"
                             fileDialog.selectFolder = true
                             fileDialog.selectExisting = true
